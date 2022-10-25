@@ -63,11 +63,17 @@
 
     </div>
     <!-- <embed src="wokeyi.mp3" autostart=true loop=true  hidden=no> -->
-    <audio id="media" src="wokeyi.mp3" autoplay preload loop></audio>
+    <audio id="media" muted  src="wokeyi.mp3" autoplay preload loop></audio>
 
     <script>
         (function () {
             var canvas = $('#canvas');
+            document.getElementById('canvas').addEventListener('click', function() {
+                document.getElementById('media').muted = false;
+                document.getElementById('media').paused = false;
+                document.getElementById('media').loop = true;
+                document.getElementById('media').play();
+            })
 
             if (!canvas[0].getContext) {
                 $("#error").show();
